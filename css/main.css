@@ -1,0 +1,164 @@
+.container{
+    width: 100%;
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.side{
+    width : 100px;
+    background-color: #F5F5F5;
+    border-right: 2px solid #EDECED;
+    padding-top: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.side h4{
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.side .color_selector{
+    width: 100%;
+    height: 600px;
+    position: relative;
+    margin-top: 70px;
+}
+
+.gooeys{
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    filter: blur(4px) contrast(30);
+    top: -70px;
+    background-color: #F5F5F5;
+}
+
+
+
+.gooeys2{
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    display: block;
+    z-index: 90;
+}
+
+
+.gooeys2 .gooey{
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    margin: 5px auto;
+}
+
+.gooeys2 .gooey.material-icons{
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+
+.gooey{
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    background-color: #ff0000;
+    border-radius: 100%;
+    transition: .2s;
+}
+
+
+.gooeys .gooey{
+    list-style: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 15px;
+    height: 15px;
+    margin: 1px auto;
+    background-color: #ff0000;
+    border-radius: 100%;
+    transition: .2s;
+}
+
+.gooeys .icons{
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    top: 70px;
+}
+
+.gooeys .gooey:nth-child(1){
+    transition: .4s;
+}
+
+
+.gooeys .gooey:nth-child(2){
+    transition: .6s;
+}
+
+.gooeys .gooey:nth-child(3){
+    transition: .8s;
+}
+
+
+.gooeys .gooey:nth-child(4){
+    transition: 1s;
+}
+
+.gooeys .gooey:nth-child(5){
+    transition: 1.2s;
+}
+
+
+
+.a .gooeys .gooey:nth-child(1){
+    top: calc(70px + 50px);
+    transition: .4s;
+}
+
+
+.a .gooeys .gooey:nth-child(2){
+    top: calc(70px + 80px);
+    transition: .6s;
+}
+
+.a .gooeys .gooey:nth-child(3){
+    top: calc(70px + 110px);
+    transition: .8s;
+}
+
+
+.a .gooeys .gooey:nth-child(4){
+    top: calc(70px + 140px);
+    transition: 1s;
+}
+
+.a .gooeys .gooey:nth-child(5){
+    top: calc(70px + 170px);
+    transition: 1.2s;
+}
+
+/* 메인 영역 */
+
+.main{
+    flex-grow: 1;
+    background-color: #F5F5F5;
+}

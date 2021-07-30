@@ -18,24 +18,34 @@
     <div class="container">
         <section class="side">
             <h4>Docket</h4>
-            <div class="color_selector">
-                <ul class="gooeys2" id="btn">
-    
-                    <li class="gooey material-icons">add_circle</li>
-                </ul>            
-                <ul class="gooeys" id="btn">
-                    <li class="gooey"></li>
-                    <li class="gooey"></li>
-                    <li class="gooey"></li>
-                    <li class="gooey"></li>
-                    <li class="gooey"></li>
-                    <li class="gooey icons"></li>
+            <div class="color_selector">        
+                <ul class="gooeys">
+                    <li class="gooey el"></li>
+                    <li class="gooey el"></li>
+                    <li class="gooey el"></li>
+                    <li class="gooey el"></li>
+                    <li class="gooey el"></li>
+                    <li class="gooey icons">
+                        <div></div>
+                        <div></div>
+                    </li>
                 </ul>
+
             </div>
 
+            <svg>
+                <defs>
+                  <filter id="blur">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 500 -150" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                  </filter>
+                </defs>
+            </svg>
         </section>
+        <!-- 메인부분 -->
         <section class="main">
-
+            
         </section>
     </div>
 </body>

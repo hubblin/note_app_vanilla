@@ -107,6 +107,35 @@
 }
 
 
+.a .gooey:nth-child(1){
+    background-color: #F5C16D;
+    
+}
+
+
+.a .gooey:nth-child(2){
+    background-color: #F4966E;
+
+}
+
+.a .gooey:nth-child(3){
+    background-color:#B18CF4;
+ 
+}
+
+
+.a .gooey:nth-child(4){
+    background-color: #02CBF5;
+
+}
+
+.a .gooey:nth-child(5){
+    background-color: #DBE589;
+
+}
+
+
+
 
 
 /* 메인 영역 */

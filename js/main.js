@@ -9,10 +9,24 @@ plusBtn.addEventListener('click', function(){
         gsap.to(plusBtn, .4, {
             rotate: 360
         });
+        gsap.to(plusBtn, .5, {
+            top: -20,
+            esae: Power1.easeOut
+        })
+        gsap.to(plusBtn, .5, {
+            delay: .5,
+            top: 0,
+            ease: Bounce.easeOut
+        })
         gooeyEls.forEach(function(gooeyEl, index){
             gsap.to(gooeyEl, 1, {
-                delay: index * .3,
-                top: 60+ index * 30
+                top: 60
+            })
+            gsap.to(gooeyEl, {
+                delay: 1,
+                duration: index * .8,
+                top: 60+ index * 30,
+                ease: Back.easeOut.config(2)
             })
         })        
 
@@ -22,6 +36,7 @@ plusBtn.addEventListener('click', function(){
         })
         gooeyEls.forEach(function(gooeyEl, index){
             gsap.to(gooeyEl, .8, {
+                delay: index * .3,
                 top: 0
             })
         })

@@ -2,6 +2,7 @@ const container = document.querySelector('.color_selector');
 const plusBtn = document.querySelector('.gooey.icons');
 const gooeyEls = document.querySelectorAll('.gooey.el');
 
+const listContainer = document.querySelector('.list_container');
 
 // 사이드 부분
 
@@ -31,6 +32,36 @@ plusBtn.addEventListener('click', function(){
                 top: 60+ index * 30,
                 ease: Back.easeOut.config(2)
             })
+
+            gooeyEl.addEventListener('click', function(){
+                let div = document.createElement('div');
+                let innerDiv = document.createElement('div');
+                let innerP = document.createElement('p');
+                let innerBtn = document.createElement('div');
+                let now = new Date();
+
+                innerDiv.className = 'list_bottom';
+
+                innerP.className = 'list-date';
+                innerP.innerHTML = `${now.getMonth() + 1} . ${now.getDate()} . ${now.getFullYear()}`;
+                
+                innerBtn.className = 'material-icons edit';
+                innerBtn.innerHTML = 'create';
+
+                innerDiv.appendChild(innerP);
+                innerDiv.appendChild(innerBtn);
+
+
+                let textarea = document.createElement('textarea');
+                let color = window.getComputedStyle(gooeyEl).backgroundColor;
+                
+                div.className = 'list';
+                div.style.backgroundColor = color;
+                div.appendChild(textarea);
+                div.appendChild(innerDiv);
+
+                listContainer.insertBefore(div, listContainer.firstChild);
+            })
         })        
 
     }else{
@@ -49,5 +80,3 @@ plusBtn.addEventListener('click', function(){
 
 // 메인 부분
 
-const textarea  = document.getElementById('content_area');
-const writeBtn = document.querySelectorAll('')

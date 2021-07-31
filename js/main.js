@@ -7,6 +7,8 @@ const listContainer = document.querySelector('.list_container');
 // 사이드 부분
 
 let hide = false;
+let div, innerDiv, innerP, innerBtn, now;
+let cnt =1;
 plusBtn.addEventListener('click', function(){
     hide = !hide;
     if(hide){
@@ -33,35 +35,9 @@ plusBtn.addEventListener('click', function(){
                 ease: Back.easeOut.config(2)
             })
 
-            gooeyEl.addEventListener('click', function(){
-                let div = document.createElement('div');
-                let innerDiv = document.createElement('div');
-                let innerP = document.createElement('p');
-                let innerBtn = document.createElement('div');
-                let now = new Date();
+            
 
-                innerDiv.className = 'list_bottom';
-
-                innerP.className = 'list-date';
-                innerP.innerHTML = `${now.getMonth() + 1} . ${now.getDate()} . ${now.getFullYear()}`;
-                
-                innerBtn.className = 'material-icons edit';
-                innerBtn.innerHTML = 'create';
-
-                innerDiv.appendChild(innerP);
-                innerDiv.appendChild(innerBtn);
-
-
-                let textarea = document.createElement('textarea');
-                let color = window.getComputedStyle(gooeyEl).backgroundColor;
-                
-                div.className = 'list';
-                div.style.backgroundColor = color;
-                div.appendChild(textarea);
-                div.appendChild(innerDiv);
-
-                listContainer.insertBefore(div, listContainer.firstChild);
-            })
+            gooeyEl.addEventListener('click', listEvent)
         })        
 
     }else{
@@ -73,10 +49,80 @@ plusBtn.addEventListener('click', function(){
                 delay: index * .3,
                 top: 0
             })
+            gooeyEl.removeEventListener('click', listEvent)
         })
     }
 })
 
 
+function listEvent(event){
+    div = document.createElement('div');
+    innerDiv = document.createElement('div');
+    innerP = document.createElement('p');
+    innerBtn = document.createElement('div');
+    now = new Date();
+
+    innerDiv.className = 'list_bottom';
+
+    innerP.className = 'list-date';
+    innerP.innerHTML = `${now.getMonth() + 1} . ${now.getDate()} . ${now.getFullYear()}`;
+    
+    innerBtn.className = 'material-icons edit';
+    innerBtn.innerHTML = 'create';
+    innerBtn.setAttribute('onclick', 'edit(' + cnt + ")");
+
+    innerDiv.appendChild(innerP);
+    innerDiv.appendChild(innerBtn);
+
+
+    let textarea = document.createElement('textarea');
+    textarea.setAttribute('disabled', 'true');
+    let color = window.getComputedStyle(event.target).backgroundColor;
+    
+    div.className = 'list';
+    div.setAttribute('id', 'the'+cnt);
+    div.style.backgroundColor = color;
+    div.appendChild(textarea);
+    div.appendChild(innerDiv);
+
+    listContainer.insertBefore(div, listContainer.firstChild);
+    cnt++;
+}
+
+
+
 // 메인 부분
+
+function edit(cnt){
+    let getlist = document.getElementById('the' + cnt);
+    let innerTextarea = document.querySelector(`#the${cnt} textarea`);
+    let innerListBtn = document.querySelector(`#the${cnt} .edit`);
+
+    innerTextarea.addEventListener('focus', function(){
+        getlist.classList.add('focused');
+        innerListBtn.style.fontSize = '0px';
+        gsap.to(innerListBtn, .3, {
+            width: '0px',
+            height: '0px',
+            margin: '15px',
+            lineHeight: '0px'
+        })
+    });
+
+    innerTextarea.addEventListener('blur', function(){
+        gsap.to(innerListBtn, .3, {
+            width: '30px',
+            height: '30px',
+            margin: '0px',
+            fontSize: '16px',
+            lineHeight: '30px'
+        })
+        innerTextarea.setAttribute('disabled', 'true');
+        getlist.classList.remove('focused');
+    });
+    
+    innerTextarea.removeAttribute("disabled");
+    
+    innerTextarea.focus();
+}
 

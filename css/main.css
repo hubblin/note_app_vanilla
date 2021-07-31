@@ -46,7 +46,7 @@
     margin: 0 auto;
     background-color: #ff0000;
     border-radius: 100%;
-    
+    cursor: pointer;
 }
 
 
@@ -107,33 +107,6 @@
 }
 
 
-.a .gooey:nth-child(1){
-    background-color: #F5C16D;
-    
-}
-
-
-.a .gooey:nth-child(2){
-    background-color: #F4966E;
-
-}
-
-.a .gooey:nth-child(3){
-    background-color:#B18CF4;
- 
-}
-
-
-.a .gooey:nth-child(4){
-    background-color: #02CBF5;
-
-}
-
-.a .gooey:nth-child(5){
-    background-color: #DBE589;
-
-}
-
 
 
 
@@ -143,4 +116,101 @@
 .main{
     flex-grow: 1;
     background-color: #F5F5F5;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+
+.main .search_container{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    color: #777;
+}
+
+.main .search_container .material-icons{
+    font-size: 17px;
+}
+
+.main .search_container input{
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+}
+
+
+.main .title_container{
+
+}
+
+.main .title_container h1{
+    font-weight: 600;
+    font-size: 45px;
+    padding-bottom: 40px;
+}
+
+
+.main .list_container{
+    width: 100%;
+    min-height: 400px;
+    background-color: royalblue;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.main .list_container .list{
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    border-radius: 20px;
+    margin: 5px;
+    position: relative;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+
+.main .list_container .list textarea{
+    width : 100%;
+    height: 130px;
+    top: 0px;
+    left: 0px;
+    box-sizing: border-box;
+    resize: none;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size:15px;
+}
+
+.main .list_container .list_bottom{
+    display: flex;
+    position: absolute;
+    width: 170px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    bottom: 15px;
+}
+
+.main .list_container .list_bottom p{
+    font-size: 13px;
+    font-weight: 100;
+}
+
+
+.main .list_container .list_bottom .edit{
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 100%;
+    cursor: pointer;
 }

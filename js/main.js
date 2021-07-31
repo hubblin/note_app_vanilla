@@ -2,6 +2,9 @@ const container = document.querySelector('.color_selector');
 const plusBtn = document.querySelector('.gooey.icons');
 const gooeyEls = document.querySelectorAll('.gooey.el');
 
+
+// 사이드 부분
+
 let hide = false;
 plusBtn.addEventListener('click', function(){
     hide = !hide;
@@ -42,3 +45,9 @@ plusBtn.addEventListener('click', function(){
         })
     }
 })
+
+
+// 메인 부분
+
+const textarea  = document.getElementById('content_area');
+const writeBtn = document.querySelectorAll('')

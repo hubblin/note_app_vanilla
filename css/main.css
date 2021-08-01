@@ -175,7 +175,7 @@
     overflow: hidden;
     animation-duration: .8s;
     animation-name: tada;
-    
+    display: flex;
 }
 
 
@@ -219,16 +219,55 @@
 
 
 .main .list_container .list textarea{
-    width : 100%;
+    flex-grow: 1;
     height: 130px;
     top: 0px;
     left: 0px;
     box-sizing: border-box;
     resize: none;
     background-color: transparent;
-    outline: none;
     border: none;
+    outline: none;
     font-size:15px;
+}
+
+.main .list_container .list.checked>.material-icons{
+    color: yellow;
+    font-size: 16px;
+    width: 28.96px;
+    height: 24px;
+    line-height: 24px;
+    background-color: #000;
+    border-radius: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+.main .list_container .list>.material-icons{
+    font-size: 0px;
+    width: 0px;
+    height: 0px;
+    text-align: center;
+
+    
+}
+
+@keyframes toggleStar{
+    from{
+        width: 0px;
+        height: 0px;
+        margin: 10px;
+        font-size: 0px;
+        line-height: 0px;
+    }
+    to{
+        width: 20px;
+        height: 20px;
+        margin: 0px;
+        font-size: 16px;
+        line-height: 20px;
+    }
 }
 
 .main .list_container .list .list_bottom{
@@ -237,12 +276,19 @@
     width: 170px;
     box-sizing: border-box;
     align-items: center;
-    justify-content: space-between;
     bottom: 15px;
     left: 0;
     right: 0;
     margin: 0 auto;
     height: 30px;
+}
+
+.main .list_container .list .list_bottom .list_bottom_container{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
 }
 
 .main .list_container .list .list_bottom p{
@@ -251,7 +297,7 @@
 }
 
 
-.main .list_container .list .list_bottom .edit{
+.main .list_container .list .list_bottom .list_bottom_container .material-icons{
     font-size: 16px;
     width: 30px;
     height: 30px;
@@ -261,10 +307,62 @@
     line-height: 30px;
     border-radius: 100%;
     cursor: pointer;
-    
 }
 
-.main .list_container .list.focused .list_bottom .edit{
-    pointer-events: none;
+.main .list_container .list .list_bottom .list_bottom_container .material-icons.edit{
+    position: absolute;
+    right: 0;
+}
 
+.main .list_container .list.focused .list_bottom .list_bottom_container .material-icons.edit{
+    pointer-events: none;
+}
+.main .list_container .list .list_bottom .list_bottom_container .material-icons.done{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    font-size: 0px;
+    line-height: 0px;
+    pointer-events: none;
+    margin: 15px;
+}
+
+.main .list_container .list.focused .list_bottom .list_bottom_container .material-icons.done{
+    pointer-events:auto;
+}
+
+.main .list_container .list .list_bottom .list_bottom_container .material-icons.delete{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    right: 32px;
+    top: 0px;
+    bottom: 0px;
+    font-size: 0px;
+    line-height: 0px;
+    pointer-events: none;
+    margin: 15px;
+}
+
+.main .list_container .list.focused .list_bottom .list_bottom_container .material-icons.delete{
+    pointer-events:auto;
+}
+
+.main .list_container .list .list_bottom .list_bottom_container .material-icons.star{
+    position: absolute;
+    right: 64px;
+    width: 0px;
+    height: 0px;
+    top: 0px;
+    bottom: 0px;
+    font-size: 0px;
+    pointer-events: none;
+    margin: 15px;
+}
+
+.main .list_container .list.focused .list_bottom .list_bottom_container .material-icons.star{
+    pointer-events:auto;
 }

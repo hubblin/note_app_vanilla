@@ -58,9 +58,16 @@ plusBtn.addEventListener('click', function(){
 function listEvent(event){
     div = document.createElement('div');
     innerDiv = document.createElement('div');
+    innerDivContainer = document.createElement('div');
+
     innerP = document.createElement('p');
     innerBtn = document.createElement('div');
+    innerDelete = document.createElement('div');
+    innerStar = document.createElement('div');
+    innerDone = document.createElement('div');
+
     now = new Date();
+
 
     innerDiv.className = 'list_bottom';
 
@@ -71,11 +78,31 @@ function listEvent(event){
     innerBtn.innerHTML = 'create';
     innerBtn.setAttribute('onclick', 'edit(' + cnt + ")");
 
-    innerDiv.appendChild(innerP);
-    innerDiv.appendChild(innerBtn);
+
+    innerDelete.className = 'material-icons delete';
+    innerDelete.innerHTML = 'delete';
+
+    innerStar.className = 'material-icons star';
+    innerStar.innerHTML = 'star';
+    
+    innerDone.className = 'material-icons done';
+    innerDone.innerHTML = 'done';
+
+    innerDivContainer.className ='list_bottom_container';
+    innerDivContainer.appendChild(innerP);
+    innerDivContainer.appendChild(innerBtn);
+    innerDivContainer.appendChild(innerDelete);
+    innerDivContainer.appendChild(innerStar);
+    innerDivContainer.appendChild(innerDone);
+
+
+    innerDiv.appendChild(innerDivContainer);
 
 
     let textarea = document.createElement('textarea');
+    let starDiv = document.createElement('div');
+    starDiv.className = 'material-icons';
+    starDiv.innerHTML = 'star';
     textarea.setAttribute('disabled', 'true');
     let color = window.getComputedStyle(event.target).backgroundColor;
     
@@ -83,6 +110,7 @@ function listEvent(event){
     div.setAttribute('id', 'the'+cnt);
     div.style.backgroundColor = color;
     div.appendChild(textarea);
+    div.appendChild(starDiv);
     div.appendChild(innerDiv);
 
     listContainer.insertBefore(div, listContainer.firstChild);
@@ -97,32 +125,117 @@ function edit(cnt){
     let getlist = document.getElementById('the' + cnt);
     let innerTextarea = document.querySelector(`#the${cnt} textarea`);
     let innerListBtn = document.querySelector(`#the${cnt} .edit`);
+    let innerListDelete = document.querySelector(`#the${cnt} .delete`);
+    let innerListStar = document.querySelector(`#the${cnt} .star`);
+    let innerListDone = document.querySelector(`#the${cnt} .done`);
+
+
+
+    
+    let toggle = false;
+    innerListDelete.addEventListener('click', function(){
+        listContainer.removeChild(getlist);
+    })
+
+    innerListStar.addEventListener('click', function(){
+        toggle = !toggle;
+        if(toggle){
+            getlist.classList.add('checked');
+        }else{
+            getlist.classList.remove('checked');
+        }
+        
+    })
 
     innerTextarea.addEventListener('focus', function(){
         getlist.classList.add('focused');
         innerListBtn.style.fontSize = '0px';
+
         gsap.to(innerListBtn, .3, {
             width: '0px',
             height: '0px',
             margin: '15px',
-            lineHeight: '0px'
+            lineHeight: '0px',
+            fontSize: '0px'
         })
-    });
 
-    innerTextarea.addEventListener('blur', function(){
-        gsap.to(innerListBtn, .3, {
+        gsap.to(innerListDone, .3, {
+            delay: .3,
             width: '30px',
             height: '30px',
             margin: '0px',
             fontSize: '16px',
             lineHeight: '30px'
         })
+
+        gsap.to(innerListDelete, .3, {
+            delay: .5,
+            width: '30px',
+            height: '30px',
+            margin: '0px',
+            fontSize: '16px',
+            lineHeight: '30px',
+        })
+
+        gsap.to(innerListStar, .3, {
+            delay: .7,
+            width: '30px',
+            height: '30px',
+            margin: '0px',
+            fontSize: '16px',
+            lineHeight: '30px',
+        })
+    });
+
+
+    innerListDone.addEventListener('click', function(){
+        innerListDelete.style.fontSize = '0px';
+        innerListDone.style.fontSize = '0px';
+        innerListStar.style.fontSize = '0px';
+
+
+        gsap.to(innerListStar, .3, {
+            width: '0px',
+            height: '0px',
+            margin: '15px',
+            fontSize: '0px',
+            lineHeight: '0px'
+        })
+        
+        gsap.to(innerListDelete, .3, {
+            delay: .3,
+            width: '0px',
+            height: '0px',
+            margin: '15px',
+            lineHeight: '0px',
+            fontSize: '0px'
+        })
+
+        gsap.to(innerListDone, .3, {
+            delay: .5,
+            width: '0px',
+            height: '0px',
+            margin: '15px',
+            lineHeight: '0px',
+            fontSize: '0px'
+        })
+
+        gsap.to(innerListBtn, .3, {
+            delay: .7,
+            width: '30px',
+            height: '30px',
+            margin: '0px',
+            fontSize: '16px',
+            lineHeight: '30px'
+        })
+        
+        
         innerTextarea.setAttribute('disabled', 'true');
         getlist.classList.remove('focused');
+        
     });
     
     innerTextarea.removeAttribute("disabled");
-    
     innerTextarea.focus();
 }
 

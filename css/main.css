@@ -143,13 +143,20 @@
 
 
 .main .title_container{
-
+    padding-bottom: 40px;
 }
 
 .main .title_container h1{
     font-weight: 600;
     font-size: 45px;
-    padding-bottom: 40px;
+    
+}
+
+.main .title_container p {
+    line-height: 20px;
+    font-size: 11px;
+    margin-left: 3px;
+    color: #777;
 }
 
 

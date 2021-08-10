@@ -185,6 +185,14 @@
     display: flex;
 }
 
+.main .list_container .list.hide{
+    display: none;
+}
+
+.main .list_container .lsit.see{
+    display: flex;
+}
+
 
 
 /* 등장 애니메이션 효과 추가 */

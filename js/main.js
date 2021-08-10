@@ -4,6 +4,8 @@ const gooeyEls = document.querySelectorAll('.gooey.el');
 
 const listContainer = document.querySelector('.list_container');
 
+const inputEl = document.getElementById('searchInput');
+
 // 사이드 부분
 
 let hide = false;
@@ -117,7 +119,19 @@ function listEvent(event){
     cnt++;
 }
 
-
+//검색 부분
+inputEl.oninput = function(){
+    let listEls = document.querySelectorAll('.list');
+    listEls.forEach(function(listEl, index){
+        listEl.classList.remove('hide');
+        listEl.classList.remove('see');
+        if(listEl.querySelector('textarea').value.includes(inputEl.value)){
+            listEl.classList.add('see');
+        }else{
+            listEl.classList.add('hide');
+        }
+    })
+}
 
 // 메인 부분
 

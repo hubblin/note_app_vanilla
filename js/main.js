@@ -134,7 +134,14 @@ function edit(cnt){
     
     let toggle = false;
     innerListDelete.addEventListener('click', function(){
-        listContainer.removeChild(getlist);
+        gsap.to(getlist, .3, {
+            width: '0px',
+            height: '0px',
+            ease: Power4.easeOut
+        })
+        setTimeout(function(){
+            listContainer.removeChild(getlist);
+        }, 300)
     })
 
     innerListStar.addEventListener('click', function(){
@@ -151,7 +158,7 @@ function edit(cnt){
         getlist.classList.add('focused');
         innerListBtn.style.fontSize = '0px';
 
-        gsap.to(innerListBtn, .3, {
+        gsap.to(innerListBtn, .2, {
             width: '0px',
             height: '0px',
             margin: '15px',
@@ -159,8 +166,8 @@ function edit(cnt){
             fontSize: '0px'
         })
 
-        gsap.to(innerListDone, .3, {
-            delay: .3,
+        gsap.to(innerListDone, .2, {
+            delay: .2,
             width: '30px',
             height: '30px',
             margin: '0px',
@@ -168,8 +175,8 @@ function edit(cnt){
             lineHeight: '30px'
         })
 
-        gsap.to(innerListDelete, .3, {
-            delay: .5,
+        gsap.to(innerListDelete, .2, {
+            delay: .3,
             width: '30px',
             height: '30px',
             margin: '0px',
@@ -177,8 +184,8 @@ function edit(cnt){
             lineHeight: '30px',
         })
 
-        gsap.to(innerListStar, .3, {
-            delay: .7,
+        gsap.to(innerListStar, .2, {
+            delay: .4,
             width: '30px',
             height: '30px',
             margin: '0px',
@@ -194,7 +201,7 @@ function edit(cnt){
         innerListStar.style.fontSize = '0px';
 
 
-        gsap.to(innerListStar, .3, {
+        gsap.to(innerListStar, .2, {
             width: '0px',
             height: '0px',
             margin: '15px',
@@ -202,26 +209,26 @@ function edit(cnt){
             lineHeight: '0px'
         })
         
-        gsap.to(innerListDelete, .3, {
+        gsap.to(innerListDelete, .2, {
+            delay: .1,
+            width: '0px',
+            height: '0px',
+            margin: '15px',
+            lineHeight: '0px',
+            fontSize: '0px'
+        })
+
+        gsap.to(innerListDone, .2, {
+            delay: .2,
+            width: '0px',
+            height: '0px',
+            margin: '15px',
+            lineHeight: '0px',
+            fontSize: '0px'
+        })
+
+        gsap.to(innerListBtn, .2, {
             delay: .3,
-            width: '0px',
-            height: '0px',
-            margin: '15px',
-            lineHeight: '0px',
-            fontSize: '0px'
-        })
-
-        gsap.to(innerListDone, .3, {
-            delay: .5,
-            width: '0px',
-            height: '0px',
-            margin: '15px',
-            lineHeight: '0px',
-            fontSize: '0px'
-        })
-
-        gsap.to(innerListBtn, .3, {
-            delay: .7,
             width: '30px',
             height: '30px',
             margin: '0px',
